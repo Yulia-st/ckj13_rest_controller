@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="/styles/css/info_CSS.css">
+<title>Note info</title>
+</head>
+<body>
+<div>
+		<a class="apply-button" href="/notes"> Notes	</a>
+	</div>
+	<h1>Note info</h1>
+	<div class="containerInfo">
+		<div th:text="${note.id}"  id="forId"></div>
+		<div th:text="${note.title}"></div>
+		<div th:text="${note.message}"></div>
+		<div th:text="${note.startDate}"></div>
+	</div>
+</body>
+</html>

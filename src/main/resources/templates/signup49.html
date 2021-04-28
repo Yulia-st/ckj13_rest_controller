@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="/styles/css/demo.css">
+<title>SignUp Page</title>
+</head>
+<body>
+
+	<h1>Please sign up!</h1>
+	<p>
+		<!--pattern="[A-Za-z]+"  pattern="[A-Za-z]{8,}"-->
+		<!--  <div th:if="${param.error}">Enter another username!</div>-->
+	<div th:if="${param.error}" style="color: red;">Enter another
+		email for this username!</div>
+	<p>
+	<form action="/signup" method="post" onsubmit="return checkForm()">
+		<div class="containerSignUp">
+		<div class="main">
+		<div class="field">
+			<label for="username">Firstname:</label>
+			<input type="text" name="username" 
+			placeholder="At least 1 letter"
+				autofocus class="inPut" required="required" 
+				id="username">
+		</div>
+		<p>
+		<div class="field">
+			<label for="lastname">Lastname:</label>
+			<input type="text" name="lastname" 
+			placeholder="At least 1 letter"
+				class="inPut" required="required" id="lastname">
+		</div>
+		<p>
+		<div class="field">
+			<label for="age">Age:</label>
+			<input type="number" name="age" 
+			placeholder="At least 2 digits" 
+			class="inPut" required="required" id="age">
+		</div>
+		
+		<p>
+		<div class="field">
+			<label for="psw">Password:</label>
+			<input type="password" name="password"
+				placeholder="8 letter or digits" class="inPut" 
+				required="required" id="psw">
+		</div>
+		<p>
+		<div class="field">
+			<label for="confirm-psw">Confirm password:</label>
+			<input type="password" name="confirm password"
+				placeholder="Confirm password" class="inPut" 
+				required="required"
+				id="confirm-psw">
+		</div>
+		<p>
+		<div class="field">
+			<label for="email">Email:</label>
+			<input type="email" name="email"
+				placeholder="my123@example.com" class="inPut" required="required"
+				id="email">
+				<!-- [a-z0-9]+@[a-z0-?]+{3}[.]{1}[a-z]{3} -->
+		</div>
+		
+		<p>
+		<div>
+			<input type="submit" value="Sign Up" class="apply-button">
+		</div>
+		<p>
+		</div>
+		</div>
+	</form>
+	<script type="text/javascript" src="/scripts/form.js"></script>
+	<p>
+	Do you have an account?
+	<a href="/login"> Sign in</a>
+</body>
+</html>

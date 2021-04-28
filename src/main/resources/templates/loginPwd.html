@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="/styles/css/demo.css">
+<title>Login page</title>
+</head>
+<body>
+	<h1>Please login!</h1>
+
+	<div th:if="${param.error}">Invalid username or password!</div>
+	<div th:if="${param.denied}">Access denied</div>
+	<!--  <div th:unless="#{param.attribute}">some text</div>-->
+
+	<form action="/resetPwd" th:object="${user}" method="post" class="containerLogIn">
+		<div>
+		<div>
+			<input th:field="*{id}" type="text" hidden>
+		</div>
+			<input type="text" th:field="*{username}" placeholder="Enter username"
+				autofocus id="inPut">
+		</div>
+		<p>
+		<div>
+			<input type="password" th:field="*{password}"
+				placeholder="Enter your password" id="inPut">
+
+		</div>
+		<p>
+		<div>
+			<a href="/forgotPassword"> Forgot password? </a>
+		</div>
+		<p>
+		<div>
+			<input type="checkbox" name="remember-me"> Remember me
+		</div>
+		<p>
+		<div>
+			<input type="submit" value="Sign in" class="apply-button">
+		</div>
+
+	</form>
+	<p>
+	<div>
+		If you haven't any account please <a href="/signup"> register here
+		</a>.
+	</div>
+
+</body>
+</html>

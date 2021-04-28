@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<!--  <head th:insert="index :: headerfile">-->
+
+<meta charset="UTF-8">
+<link rel="stylesheet" href="/styles/css/notes_CSS.css">
+<link rel="stylesheet" href="/styles/css/demo.css">
+<title>Notes list</title>
+
+</head>
+<body>
+	<div th:insert="index :: menu"></div>
+	<h1>Notes list</h1>
+	<a href="/notes/create">Create new note</a>
+<!--  
+	<div>
+		<div>
+			<input id="title" placeholder="Title">
+		</div>
+<p>
+		<div>
+			<textarea id="message" placeholder="Message"></textarea>
+		</div>
+<p>
+	</div>
+	<button type="button" 
+	value="Create new note" 
+	onclick="saveNote()">
+	Create new note</button>
+	<p>-->
+	
+	<div class="containerNotes" th:each="note : ${notes}">
+		<div>-------------</div>
+		<div th:text="${note.id}"></div>
+		<div th:text="${note.title}"></div>
+		<div th:text="${note.message}"></div>
+		<div th:text="${note.startDate}"></div>
+		<div>
+			<div>
+				<a th:href="@{/notes/{n}(n=${note.id})}"
+				onclick="confirm('Data of note will not be allowed to edit. Continue?')">Info</a>
+			</div>
+			<div>
+				<a th:href="@{/notes/delete/{n}(n=${note.id})}"
+					onclick="return confirm('Delete?')">Delete</a>
+			</div>
+			<div>
+				<a th:href="@{/notes/edit/{n}(n=${note.id})}"
+				onclick="alert('Data of note allowed to edit')">Edit</a>
+			</div>
+		</div>
+		<div>-------------</div>
+	</div>
+	<!--  <form action="/notes/search" name="note" method="get">
+		<div>
+			<input name="date1" type="date" placeholder="yy/mm/dd" id="inPut">
+		</div>-->
+		<!--  <div>
+			<input name="date2" type="date" placeholder="yy/mm/dd">
+		</div>-->
+	<!--	<input type="submit" value="Search by date" class="pressed-button">
+	</form>-->
+
+	<form action="/notes/search" name="note" method="get">
+		<div>
+			<input name="word" type="text" placeholder="text" class="inPut" id="search">
+		</div>
+
+		<input type="submit" value="Search" class="pressed-button">
+	</form>
+	<p>
+		<div>
+			<!-- <input type="submit" value="Sign Up" class="apply-button"> -->
+			<button type="button" value="List notes" class="apply-button" 
+			onclick="arrNotes()">Array of notes</button>
+		</div>
+		
+	<script type="text/javascript" src="/scripts/arrnotes.js"></script>
+	<script type="text/javascript" src="/scripts/notes.js"></script>
+</body>
+</html>

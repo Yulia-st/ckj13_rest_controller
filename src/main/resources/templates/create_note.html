@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="/styles/css/create_notes_CSS.css">
+<title>Create note</title>
+</head>
+<body>
+	<!--  <div th:insert="index :: menu"></div>-->
+	<div>
+		<a class="apply-button" href="/notes"> Notes </a>
+	</div>
+	<h2>Create new note</h2>
+	<form action="/notes/add" name="note" method="post"
+		class="containerCreate" onsubmit="return Note()">
+		<div>
+			<input name="title" type="text" placeholder="title" class="inPut"
+				required="required" id="title">
+		</div>
+		<div>
+			<textarea name="message" placeholder="message" class="inPut"
+				required="required" id="message"></textarea>
+		</div>
+
+		<input type="submit" value="Create" class="floating-button">
+	</form>
+	<script type="text/javascript" src="/scripts/checknote.js"></script>
+</body>
+</html>

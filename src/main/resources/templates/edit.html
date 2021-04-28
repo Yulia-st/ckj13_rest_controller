@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="/styles/css/edit_CSS.css">
+<!--  <link rel="stylesheet" type="text/css" href="..static/css/login.css" th:href="@{/static/css/login.css}"/>-->
+
+<title>Edit</title>
+</head>
+<body>
+	<div>
+		<a class="apply-button" href="/notes"> Notes	</a>
+	</div>
+	<h2>Edit note</h2>
+	<form action="/notes/change" th:object="${note}" method="post"
+		class="containerEdit">
+		<div>
+			<input th:field="*{id}" type="text" hidden>
+		</div>
+		<p>
+		<div>
+			<input id="inPut" th:field="*{title}" type="text" autofocus >
+		</div>
+		<div>
+			<textarea th:field="*{message}" class="size"></textarea>
+		</div>
+		<input type="submit" value="Apply" class="apply-button">
+	</form>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="/styles/css/demo.css">
+<title>SignUp Page</title>
+</head>
+<body>
+<!-- pattern="[A-Za-z]+" -->
+	<h1>Please sign up!!!!</h1>
+	<p>
+	<div th:if="${param.error}" style="color: red;">Enter another username!</div>
+	<p>
+	<form action="/signup" method="post" id="signup_form">
+		<div>
+			Username:<input type="text" name="username" placeholder="Username" autofocus class="inPut" 
+			required="required"  id="username">
+		</div>
+		<p>
+		<div>
+			Password:<input type="password" name="password" placeholder="Password" class="inPut" 
+			required="required"  id="psw">
+		</div>
+		<p>
+		<div>
+			Confirm password:<input type="password" name="confirm password" placeholder="Confirm password" class="inPut" 
+			required="required"  id="confirm-psw">
+		</div>
+		<p>
+		<div>
+			Email:<input type="email" name="email" placeholder="Email" class="inPut" 
+			required="required" id="email">
+		</div>
+		<p>
+		<div>
+		<button type="button" value="Sign up" onclick="submitForm()">Sign Up</button>
+		</div>
+		  <!--  <div>
+			<input type="submit" value="Sign Up" class="apply-button">
+		</div>-->
+		<p>
+	</form>
+	<script type="text/javascript" src="/scripts/check.js"></script>
+	Do you have an account? <a href="/login"> Sign in</a>
+</body>
+</html>

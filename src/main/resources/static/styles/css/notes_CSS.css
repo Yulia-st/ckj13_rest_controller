@@ -1,0 +1,90 @@
+@charset "UTF-8";
+
+body {
+   	
+   	 background:url("/styles/images/background54.png");
+   	 font-size: 1.2rem;
+   	 font-family: Courier New, Times New Roman, Arial, sans-serif; 
+ }
+
+H1 {
+	margin-top: 15px ;
+	text-align:center;
+    font-size: 50px; 
+    font-family: Courier New, Times New Roman, Arial, sans-serif; 
+    color: #0e74f1; 
+   }
+   
+a {
+	text-decoration: none;
+	display: block;
+	padding-left: 13px;
+	}
+	
+a[href$=".pdf"] {
+  background-image: url(/images/editS.png);
+}
+
+a:link {
+text-decoration: none;
+  color: #497DDD; 
+  border-bottom: 1px dashed; 
+  padding-bottom: 3px;
+}
+a:visited {
+  color: #EF7D55;
+}
+a:hover {
+text-decoration: underline;
+  color: #154088; 
+  border-bottom: .07em solid;
+  padding-bottom: 3px;
+}
+a:active {
+text-decoration: none;
+  color: #497DDD; 
+  border-bottom: 1px dashed;
+  padding-bottom: 3px;
+}
+.inPut{
+	width: 250px;
+	height: 50px;
+	margin: 10px 20px;
+}
+.containerNotes {
+	border: 1px solid blue;
+	width: 700px;
+	height: 250px;
+	margin: auto;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	
+}
+.pressed-button {
+  text-decoration: none;
+  display: inline-block;
+  padding: 12px 40px;
+  margin: 10px 20px;
+  border-radius: 30px;
+  background-image: linear-gradient(45deg, #6ab1d7 0%, #33d9de 50%, #002878 100%);
+  background-position: 100% 0;
+  background-size: 200% 200%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+  color: white;
+  box-shadow: 0 16px 32px 0 rgba(0, 40, 120, .35);
+  transition: .5s;
+}
+.pressed-button:hover {
+  box-shadow: 0 0 0 0 rgba(0, 40, 120, 0);
+  background-position: 0 0;
+}
+hr{
+background-color: #EF7D55;
+color: #EF7D55;
+border-top: 1px dotted;
+}

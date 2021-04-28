@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<!--  <head th:insert="index :: headerfile">-->
+
+<meta charset="UTF-8">
+<link rel="stylesheet" href="/styles/css/notes_CSS.css">
+<link rel="stylesheet" href="/styles/css/demo.css">
+<title>Notes list</title>
+<style>
+.containerNotes {
+	border: 1px solid blue;
+	width: 700px;
+	height: 250px;
+	margin: auto;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+a {
+	text-decoration: none;
+	display: block;
+	padding-left: 13px;
+}
+
+a:link {
+	text-decoration: none;
+	color: #497DDD;
+	border-bottom: 1px dashed;
+	padding-bottom: 3px;
+}
+
+a:visited {
+	color: #EF7D55;
+}
+
+a:hover {
+	text-decoration: underline;
+	color: #154088;
+	border-bottom: .07em solid;
+	padding-bottom: 3px;
+}
+
+a:active {
+	text-decoration: none;
+	color: #497DDD;
+	border-bottom: 1px dashed;
+	padding-bottom: 3px;
+}
+
+#topSite {
+	position: fixed;
+	right: 45px;
+	bottom: 45px;
+}
+.inPut{
+	width: 250px;
+	height: 50px;
+	margin: 10px 20px;
+}
+
+.hh {
+	margin-top: 15px ;
+	text-align:center;
+    font-size: 30px; 
+    font-family: Courier New, Times New Roman, Arial, sans-serif; 
+    color: #0e74f1; 
+   }
+   
+.back_to_top{
+position: fixed;
+bottom: 80px;
+right: 40px;
+z-index: 9999;
+width: 60px;
+height: 30px;
+text-align: center;
+line-height: 30px;
+background: #f5f5f5;
+color: #444;
+cursor: pointer;
+border-radius:2px;
+display: none;
+}  
+
+.back_to_top:hover{
+background: #e9ebec;
+}
+
+.back_to_top-show{
+display: block;
+}
+
+</style>
+</head>
+<body>
+	<div th:insert="index :: menu"></div>
+	<h1>Notes list</h1>
+	<div>
+		<hr>
+	</div>
+	<!--<a href="/notes/create">Create new note</a>-->
+
+	<div>
+		<div>
+			<input id="title" placeholder="Title">
+		</div>
+		<p>
+		<div>
+			<textarea id="message" placeholder="Message" class="inPut"></textarea>
+		</div>
+		<p>
+	</div>
+	<button type="button" value="Create new note" class="apply-button"
+		id="butSave" onclick="reDrawButSave()">Create new note</button>
+	<p>
+
+		<!--  <div class="containerNotes" >-->
+	<div id="container">
+		<!-- <div id="bord">-------------</div>-->
+		<div id="notes"></div>
+	</div>
+	<div id="id"></div>
+	<div id="title"></div>
+	<div id="message"></div>
+	<div id="startDate"></div>
+
+	<div id="ainfo"></div>
+	<!--<div>
+			<div>
+				<a th:href="@{/notes/{n}(n=${note.id})}"
+				onclick="confirm('Data of note will not be allowed to edit. Continue?')">Info</a>
+			</div>
+			<div>
+				<a th:href="@{/notes/delete/{n}(n=${note.id})}"
+					onclick="return confirm('Delete?')">Delete</a>
+			</div>
+			<div>
+				<a th:href="@{/notes/edit/{n}(n=${note.id})}"
+				onclick="alert('Data of note allowed to edit')">Edit</a>
+			</div>  
+		</div>-->
+	<!--  <div id="bord">-------------</div>-->
+	<!--  </div>-->
+
+
+	<form id="search_form" action="/notes/search" name="note" method="get">
+		<div>
+			<input name="word" type="text" placeholder="text" class="inPut"
+				id="search">
+
+		</div>
+
+		<!--  <input type="submit" value="Search" class="pressed-button" >-->
+		<button type="button" value="search notes" class="pressed-button"
+			onclick="searchNotes()">Search</button>
+	</form>
+	<p>
+		<!--  	<div>-->
+		<!-- <input type="submit" value="Sign Up" class="apply-button"> -->
+		<!--		<button type="button" value="List notes" class="apply-button" 
+			onclick="arrNotes()">Array of notes</button>
+		</div>-->
+
+
+		<!--<script type="text/javascript" src="/scripts/arrnotes.js"></script>-->
+
+		<script type="text/javascript" src="/scripts/notes.js"></script>
+
+		<a  title="Upward" class="back_to_top">Up</a>
+
+		<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery/min.js" ></script>-->
+		<script type="text/javascript" src="/scripts/topbut.js"></script>
+</body>
+</html>
